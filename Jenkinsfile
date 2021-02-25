@@ -5,7 +5,7 @@ pipeline {
        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
        AWS_S3_BUCKET         = 'lucasrivelles-jar-bucket'
-       ARTIFACT_NAME         = 'ms-users-'+BUILD_ID+'.jar'
+       ARTIFACT_NAME         = 'ms-users-'+$BUILD_ID+'.jar'
    }
 
    stages {
