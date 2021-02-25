@@ -12,7 +12,7 @@ pipeline {
       stage('Build') {
          steps {
             // Get some code from a GitHub repository
-            git 'https://github.com/rivelles/kotlin-ms-users.git'
+            //git 'https://github.com/rivelles/kotlin-ms-users.git'
 
             // Run Maven on a Unix agent.
             sh "./mvnw clean package"
