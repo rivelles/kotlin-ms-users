@@ -2,14 +2,10 @@ pipeline {
    agent any
 
    environment {
-       // use your actual issuer URL here and NOT the placeholder {yourOktaDomain}
-       //OKTA_OAUTH2_ISSUER           = '{yourOktaDomain}/oauth2/default'
-       //OKTA_OAUTH2_CLIENT_ID        = credentials('OKTA_OAUTH2_CLIENT_ID')
-       //OKTA_OAUTH2_CLIENT_SECRET    = credentials('OKTA_OAUTH2_CLIENT_SECRET')
        AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
        AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
        AWS_S3_BUCKET         = 'lucasrivelles-jar-bucket'
-       ARTIFACT_NAME        = 'ms-users-${currentBuild.startTimeInMillis}.jar'
+       ARTIFACT_NAME         = 'ms-users-${BUILD_ID}.jar'
    }
 
    stages {
