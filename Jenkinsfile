@@ -15,7 +15,7 @@ pipeline {
             //git 'https://github.com/rivelles/kotlin-ms-users.git'
 
             // Run Maven on a Unix agent.
-            sh "./mvnw clean package"
+            sh "mvn clean package"
          }
       }
    }
