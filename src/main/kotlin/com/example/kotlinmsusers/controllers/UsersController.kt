@@ -17,6 +17,11 @@ class UsersController {
         return usersRepository.findAll().toList()
     }
 
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Long): User {
+        return usersRepository.findById(id).get()
+    }
+
     @PostMapping
     fun saveUser(@RequestBody user: User): User {
         return usersRepository.save(user)
