@@ -23,7 +23,8 @@ pipeline {
       }
       stage('Sonar Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube', envOnly: true) {
+                withSonarQubeEnv('SonarQube') {
+                    def scannerHome = tool 'sonarScanner';
                     println ${env.SONAR_HOST_URL}
                 }
             }
