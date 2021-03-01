@@ -30,13 +30,13 @@ pipeline {
                 }
             }
       }
-      stage("Quality Gate") {
+      /*stage("Quality Gate") {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     waitForQualityGate abortPipeline: true
                 }
             }
-      }
+      }*/
       stage('Build on S3') {
             steps {
                 sh "mvn package"
