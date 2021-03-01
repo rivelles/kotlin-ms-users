@@ -21,6 +21,13 @@ pipeline {
             sh "mvn clean test"
          }
       }
+      stage('Sonar Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube', envOnly: true) {
+                    println ${env.SONAR_HOST_URL}
+                }
+            }
+      }
       stage('Build on S3') {
             steps {
                 sh "mvn package"
