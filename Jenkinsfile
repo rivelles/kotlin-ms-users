@@ -26,7 +26,7 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     //def scannerHome = tool 'sonarScanner';
                     println "${env.SONAR_HOST_URL}"
-                    sh 'mvn clean package sonar:sonar'
+                    sh 'mvn clean package sonar:sonar -DskipTests=true'
                 }
             }
       }
@@ -39,14 +39,14 @@ pipeline {
       }*/
       stage('Build on S3') {
             steps {
-                sh "mvn package"
-            }
-            post{
-                success {
+//                sh "mvn package"
+//            }
+//            post{
+//                success {
                     archiveArtifacts 'target/*.jar'
                     sh 'aws configure set region sa-east-1'
                     sh 'aws s3 cp ./target/kotlin-ms-users-0.0.1-SNAPSHOT.jar s3://$AWS_S3_BUCKET/$ARTIFACT_NAME'
-                }
+//                }
             }
       }
       stage('Deploy on EBS') {
