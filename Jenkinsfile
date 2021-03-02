@@ -26,7 +26,7 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     //def scannerHome = tool 'sonarScanner';
                     println "${env.SONAR_HOST_URL}"
-                    sh 'mvn clean package sonar:sonar -DskipTests=true'
+                    sh 'mvn clean package sonar:sonar'
                 }
             }
       }
